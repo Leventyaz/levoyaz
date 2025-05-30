@@ -22,6 +22,7 @@
             --dark: #1a202c;
             --light: #f7fafc;
             --gray: #718096;
+            --yellow: #FFD700;
             --card-bg: rgba(255,255,255,0.05);
         }
 
@@ -398,7 +399,7 @@
 
         .hero h2 {
             font-size: clamp(1.2rem, 4vw, 2rem);
-            color: var(--gray);
+            color: var(--yellow);
             margin-bottom: 2rem;
             animation: slideInRight 1s ease-out 0.5s both;
         }
@@ -1683,6 +1684,19 @@
                 border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
             }
         }
+
+        /* Hero Section Styles */
+        .typing-text {
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            color: #FFD700; /* Sarı renk */
+            margin-bottom: 2rem;
+            animation: slideInRight 1s ease-out 0.5s both;
+        }
+
+        /* Typing Effect Script */
+        const typingTexts = ['Frontend Developer', 'UI/UX Designer', 'Freelancer', 'Creative Coder'];
+        let textIndex = 0;
+        let charIndex = 0;
     </style>
 </head>
 <body>
@@ -1739,7 +1753,7 @@
                 <img src="IMG-20181105-WA0003.jpeg" alt="Levent Yazıcıoğlu" class="profile-image">
             </div>
             <h1 data-aos="fade-left" data-aos-duration="1000">Levent Yazıcıoğlu</h1>
-            <h2 class="typing-text" id="typingText" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">Full Stack Developer</h2>
+            <h2 class="typing-text" id="typingText" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200" style="color: #FFD700;">Full Stack Developer</h2>
             <p class="hero-description" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                 Full Stack geliştirici olarak modern web teknolojileri ile 
                 kullanıcı deneyimini ön planda tutan, performanslı ve güvenli 
@@ -2082,7 +2096,7 @@
                 <div class="contact-item" data-aos="zoom-in" data-aos-delay="200">
                     <i class="fas fa-envelope"></i>
                     <h4>E-posta</h4>
-                    <p>leventyazicioglu@gmail.com</p>
+                    <p>levoyaz@yahoo.com</p>
                 </div>
                 <div class="contact-item" data-aos="zoom-in" data-aos-delay="300">
                     <i class="fas fa-phone"></i>
@@ -2116,7 +2130,7 @@
             </form>
             <div class="social-links" data-aos="fade-up" data-aos-delay="600">
                 <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/levent-yazicioglu/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="#" target="_blank" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
