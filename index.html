@@ -235,12 +235,6 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            opacity: 0.8;
-        }
-
-        :root[data-theme="light"] #matrix-canvas {
-            filter: invert(1);
-            opacity: 0.3;
         }
 
         .hero {
@@ -250,31 +244,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            padding: 120px 5% 0;
-        }
-
-        :root[data-theme="light"] .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
-            z-index: 1;
-        }
-
-        :root[data-theme="light"] .hero-description {
-            color: var(--dark) !important;
-        }
-
-        :root[data-theme="light"] .geometric-shape {
-            opacity: 0.2;
-        }
-
-        :root[data-theme="light"] .particle {
-            background: var(--primary);
-            opacity: 0.3;
+            padding: 120px 5% 0; /* Üst padding'i artırıyorum */
         }
 
         .hero::before {
@@ -1292,8 +1262,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--bg);
-            opacity: 0.9;
+            background: rgba(26, 32, 44, 0.9);
             z-index: 0;
         }
 
@@ -1304,14 +1273,6 @@
             z-index: 1;
         }
 
-        .contact .section-title,
-        .contact p,
-        .contact-item h4,
-        .contact-item p,
-        .form-group label {
-            color: var(--text);
-        }
-
         .contact-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -1319,35 +1280,39 @@
             margin: 3rem 0;
         }
 
+        @media (max-width: 640px) {
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .contact-item {
-            background: var(--card-bg);
+            background: rgba(255,255,255,0.05);
             padding: 2rem;
             border-radius: 15px;
             transition: all 0.3s ease;
         }
 
         .contact-item:hover {
-            background: var(--primary);
+            background: rgba(102, 126, 234, 0.1);
             transform: translateY(-5px);
         }
 
-        .contact-item:hover i,
-        .contact-item:hover h4,
-        .contact-item:hover p {
-            color: #ffffff;
+        .contact-item i {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: block;
         }
 
-        .contact-form input,
-        .contact-form textarea {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            color: var(--text);
+        .contact-item h4 {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 0.5rem;
         }
 
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: var(--primary);
-            background: var(--card-bg);
+        .contact-item p {
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            color: var(--gray);
         }
 
         .contact-form {
@@ -1783,29 +1748,6 @@
             color: #FFD700;
             margin-bottom: 2rem;
             animation: slideInRight 1s ease-out 0.5s both;
-        }
-
-        .contact-item i {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            color: var(--primary);
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .contact-item h4 {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-item p {
-            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
-            color: var(--gray);
-        }
-
-        @media (max-width: 640px) {
-            .contact-info {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
