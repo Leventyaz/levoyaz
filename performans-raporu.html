@@ -103,6 +103,16 @@
             <h2>Yıllık Büyüme Trendi</h2>
             <canvas id="growthChart"></canvas>
         </div>
+
+        <div class="chart-container">
+            <h2>Performans Trend Grafiği</h2>
+            <canvas id="performans-trend"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <h2>Departman Performans Grafiği</h2>
+            <canvas id="departman-performans"></canvas>
+        </div>
     </div>
 
     <script>
@@ -178,6 +188,156 @@
                 scales: {
                     y: {
                         beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Performans Trend Grafiği
+        const trendCtx = document.getElementById('performans-trend').getContext('2d');
+        new Chart(trendCtx, {
+            type: 'line',
+            data: {
+                labels: ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran'],
+                datasets: [{
+                    label: 'Üretim Performansı',
+                    data: [82, 85, 88, 86, 89, 91],
+                    borderColor: '#6366f1',
+                    backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    pointBackgroundColor: '#6366f1',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                },
+                {
+                    label: 'Verimlilik',
+                    data: [78, 82, 85, 87, 88, 90],
+                    borderColor: '#10b981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    pointBackgroundColor: '#10b981',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Aylık Performans ve Verimlilik Trendi',
+                        font: {
+                            size: 16,
+                            weight: 'bold'
+                        },
+                        padding: 20
+                    },
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 20,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 70,
+                        max: 100,
+                        grid: {
+                            display: true,
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Departman Performans Grafiği
+        const deptCtx = document.getElementById('departman-performans').getContext('2d');
+        new Chart(deptCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Üretim Hızı', 'Kalite', 'Verimlilik', 'İş Güvenliği', 'Maliyet Kontrolü'],
+                datasets: [{
+                    label: 'Gerçekleşen',
+                    data: [85, 92, 88, 95, 82],
+                    backgroundColor: 'rgba(99, 102, 241, 0.2)',
+                    borderColor: '#6366f1',
+                    pointBackgroundColor: '#6366f1',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6
+                },
+                {
+                    label: 'Hedef',
+                    data: [90, 90, 90, 90, 90],
+                    backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                    borderColor: '#10b981',
+                    pointBackgroundColor: '#10b981',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Departman Performans Analizi',
+                        font: {
+                            size: 16,
+                            weight: 'bold'
+                        },
+                        padding: 20
+                    },
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 20,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        min: 0,
+                        max: 100,
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 20
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        },
+                        angleLines: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 12,
+                                weight: 'bold'
+                            }
+                        }
                     }
                 }
             }
