@@ -369,20 +369,16 @@
 
         @keyframes morphing {
             0%, 100% {
-                border-radius: 30% 70% 70% 30% / 60% 40% 60% 40%;
-                transform: rotate(0deg);
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
             }
             25% {
-                border-radius: 70% 30% 30% 70% / 40% 60% 40% 60%;
-                transform: rotate(90deg);
+                border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
             }
             50% {
-                border-radius: 30% 70% 70% 30% / 60% 40% 60% 40%;
-                transform: rotate(180deg);
+                border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
             }
             75% {
-                border-radius: 70% 30% 30% 70% / 40% 60% 40% 60%;
-                transform: rotate(270deg);
+                border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
             }
         }
 
@@ -1749,15 +1745,10 @@
         /* Hero Section Styles */
         .typing-text {
             font-size: clamp(1.2rem, 4vw, 2rem);
-            color: #FFD700; /* Sarı renk */
+            color: #FFD700;
             margin-bottom: 2rem;
             animation: slideInRight 1s ease-out 0.5s both;
         }
-
-        /* Typing Effect Script */
-        const typingTexts = ['İşletme Müdürü', 'Yönetim Danışmanı', 'Stratejik Planlama Uzmanı', 'İş Geliştirme Lideri'];
-        let textIndex = 0;
-        let charIndex = 0;
     </style>
 </head>
 <body>
@@ -2376,6 +2367,65 @@
             offset: 100
         });
 
+        // Typing Effect Variables
+        const typingTexts = ['İşletme Müdürü', 'Yönetim Danışmanı', 'Stratejik Planlama Uzmanı', 'İş Geliştirme Lideri'];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 100;
+        const deletingSpeed = 50;
+        const pauseTime = 2000;
+
+        // Typing Effect Function
+        function type() {
+            const currentText = typingTexts[textIndex];
+            const typingElement = document.getElementById('typingText');
+
+            if (!isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+
+                if (charIndex === currentText.length) {
+                    isDeleting = true;
+                    setTimeout(type, pauseTime);
+                    return;
+                }
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % typingTexts.length;
+                }
+            }
+
+            setTimeout(type, isDeleting ? deletingSpeed : typingSpeed);
+        }
+
+        // Start typing effect
+        type();
+
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            themeToggle.querySelector('i').className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                const icon = themeToggle.querySelector('i');
+                icon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+            });
+        }
+
         // Loader
         window.addEventListener('load', () => {
             setTimeout(() => {
@@ -2406,42 +2456,6 @@
             }
         }
         createParticles();
-
-        // Typing Effect
-        const typingTexts = ['İşletme Müdürü', 'Yönetim Danışmanı', 'Stratejik Planlama Uzmanı', 'İş Geliştirme Lideri'];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingSpeed = 100;
-        const deletingSpeed = 50;
-        const pauseTime = 2000;
-
-        function type() {
-            const currentText = typingTexts[textIndex];
-            const typingElement = document.getElementById('typingText');
-
-            if (!isDeleting) {
-                typingElement.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-
-                if (charIndex === currentText.length) {
-                    isDeleting = true;
-                    setTimeout(type, pauseTime);
-                    return;
-                }
-            } else {
-                typingElement.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-
-                if (charIndex === 0) {
-                    isDeleting = false;
-                    textIndex = (textIndex + 1) % typingTexts.length;
-                }
-            }
-
-            setTimeout(type, isDeleting ? deletingSpeed : typingSpeed);
-        }
-        type();
 
         // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
@@ -2620,26 +2634,6 @@
                 behavior: 'smooth'
             });
         });
-
-        // Theme Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        if (themeToggle) {
-            // Check for saved theme preference
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            themeToggle.querySelector('i').className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-                
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                
-                const icon = themeToggle.querySelector('i');
-                icon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-            });
-        }
     </script>
 </body>
 </html>
