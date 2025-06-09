@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-642EJQSXW0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-642EJQSXW0');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Levent Yazıcıoğlu - Full Stack Developer | Modern web teknolojileri ile özel çözümler">
@@ -2321,7 +2330,11 @@
                 </div>
             </div>
 
-            <form class="contact-form" id="contactForm" data-aos="fade-up" data-aos-delay="400">
+            <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST" data-aos="fade-up" data-aos-delay="400">
+                <input type="hidden" name="access_key" value="8dac37f3-87ad-41ad-8650-b93dffc29252">
+                <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                <input type="checkbox" name="botcheck" style="display: none;">
+                
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">Adı Soyadı</label>
@@ -2378,71 +2391,28 @@
     </a>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
     <script src="matrix-background.js"></script>
-    <script src="light-background.js"></script>
     <script>
-        // EmailJS başlatma
-        (function() {
-            emailjs.init("YOUR_USER_ID"); // EmailJS User ID'nizi buraya ekleyin
-        })();
-
-        // Form Submit
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const button = e.target.querySelector('button');
-            const originalText = button.innerHTML;
-            
-            // Form verilerini al
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
-
-            // Gönderme durumunu göster
-            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gönderiliyor...';
-            button.disabled = true;
-            
-            // EmailJS ile e-posta gönder
-            emailjs.send('default_service', 'template_id', {
-                from_name: formData.name,
-                from_email: formData.email,
-                subject: formData.subject,
-                message: formData.message,
-                to_email: 'levoyaz@yahoo.com'
-            })
-            .then(function() {
-                button.innerHTML = '<i class="fas fa-check"></i> Gönderildi!';
-                button.style.background = '#48bb78';
-                e.target.reset();
-                
-                setTimeout(() => {
-                    button.innerHTML = originalText;
-                    button.style.background = '';
-                    button.disabled = false;
-                }, 3000);
-            })
-            .catch(function(error) {
-                button.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Hata!';
-                button.style.background = '#e53e3e';
-                console.error('Email gönderme hatası:', error);
-                
-                setTimeout(() => {
-                    button.innerHTML = originalText;
-                    button.style.background = '';
-                    button.disabled = false;
-                }, 3000);
-            });
-        });
-
         // Initialize AOS
         AOS.init({
             duration: 1000,
             once: true,
             offset: 100
+        });
+
+        // Form submit olayını göstermek için basit animasyon
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            // Form normal şekilde submit olacak, sadece visual feedback veriyoruz
+            const button = e.target.querySelector('button');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gönderiliyor...';
+            button.disabled = true;
+            
+            // Form normal şekilde Web3Forms'a gönderilecek
+            // Bu kod sadece kullanıcıya geri bildirim sağlıyor
+            setTimeout(function() {
+                // Herhangi bir hata yakalanırsa buraya eklenebilir
+            }, 2000);
         });
 
         // Typing Effect Variables
