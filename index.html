@@ -2349,12 +2349,14 @@
                 </div>
             </div>
 
-            <form class="contact-form" id="contactForm" action="https://formsubmit.co/levoyaz@yahoo.com" method="POST" data-aos="fade-up" data-aos-delay="400">
-                <!-- FormSubmit yapılandırma -->
-                <input type="hidden" name="_subject" value="Yeni İletişim Formu Mesajı">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://levoyaz.com/thanks.html">
-                <input type="hidden" name="_template" value="table">
+            <form class="contact-form" id="contactForm" action="https://api.staticforms.xyz/submit" method="POST" data-aos="fade-up" data-aos-delay="400">
+                <!-- StaticForms yapılandırma -->
+                <input type="hidden" name="accessKey" value="3e122c7d-7005-4d41-9b38-b8e18ab2e012">
+                <input type="hidden" name="subject" value="Yeni İletişim Formu Mesajı">
+                <input type="hidden" name="replyTo" value="{email}">
+                <input type="hidden" name="redirectTo" value="https://levoyaz.com/thanks.html">
+                <input type="hidden" name="toEmail" value="levoyaz@yahoo.com">
+                <input type="text" name="honeypot" style="display: none;">
                 
                 <div class="form-row">
                     <div class="form-group">
