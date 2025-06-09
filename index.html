@@ -2349,12 +2349,12 @@
                 </div>
             </div>
 
-            <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST" data-aos="fade-up" data-aos-delay="400">
-                <input type="hidden" name="access_key" value="8dac37f3-87ad-41ad-8650-b93dffc29252">
-                <input type="hidden" name="subject" value="Yeni İletişim Formu Mesajı">
-                <input type="hidden" name="from_name" value="Levoyaz Web Sitesi">
-                <input type="hidden" name="redirect" value="https://web3forms.com/success">
-                <input type="checkbox" name="botcheck" style="display: none;">
+            <form class="contact-form" id="contactForm" action="https://formsubmit.co/levoyaz@yahoo.com" method="POST" data-aos="fade-up" data-aos-delay="400">
+                <!-- FormSubmit yapılandırma -->
+                <input type="hidden" name="_subject" value="Yeni İletişim Formu Mesajı">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://levoyaz.com/thanks.html">
+                <input type="hidden" name="_template" value="table">
                 
                 <div class="form-row">
                     <div class="form-group">
@@ -2423,17 +2423,14 @@
 
         // Form submit olayını göstermek için basit animasyon
         document.getElementById('contactForm').addEventListener('submit', function(e) {
-            // Form normal şekilde submit olacak, sadece visual feedback veriyoruz
+            // Form gönderim butonu animasyonu
             const button = e.target.querySelector('button');
             const originalText = button.innerHTML;
             button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gönderiliyor...';
             button.disabled = true;
             
-            // Form başarıyla gönderilirse geri bildirim gösterilecek
-            // Form işlemine müdahale etmiyoruz
-            setTimeout(function() {
-                // Form gönderimini engellemeyin, normal akışa devam etsin
-            }, 1000);
+            // Form normal şekilde işlenecek, JS kodunu kesmeyin
+            // FormSubmit doğrudan post işlemini gerçekleştirecek
         });
 
         // Typing Effect Variables
