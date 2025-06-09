@@ -12,10 +12,21 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Levent Yazıcıoğlu - Full Stack Developer | Modern web teknolojileri ile özel çözümler">
-    <meta name="keywords" content="full stack developer, web development, react, javascript, nodejs, freelance">
+    <meta name="description" content="Levent Yazıcıoğlu - 30 yıllık deneyimli İşletme Müdürü ve Yönetim Danışmanı. Kurumsal yönetim, stratejik planlama ve operasyon yönetimi alanlarında uzman.">
+    <meta name="keywords" content="işletme müdürü, yönetim danışmanı, stratejik planlama, operasyon yönetimi, insan kaynakları, Levent Yazıcıoğlu, gaziantep">
     <meta name="author" content="Levent Yazıcıoğlu">
-    <title>Levoyaz - Levent Yazıcıoğlu | Full Stack Developer</title>
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Turkish">
+    <meta property="og:title" content="Levent Yazıcıoğlu - İşletme Müdürü & Yönetim Danışmanı">
+    <meta property="og:description" content="30 yıllık deneyimli İşletme Müdürü ve Yönetim Danışmanı. Kurumsal yönetim ve stratejik planlama uzmanı.">
+    <meta property="og:image" content="1516650190946.jpeg">
+    <meta property="og:url" content="https://levoyaz.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Levent Yazıcıoğlu - İşletme Müdürü & Yönetim Danışmanı">
+    <meta name="twitter:description" content="30 yıllık deneyimli İşletme Müdürü ve Yönetim Danışmanı. Kurumsal yönetim ve stratejik planlama uzmanı.">
+    <meta name="twitter:image" content="1516650190946.jpeg">
+    <title>Levoyaz - Levent Yazıcıoğlu | İşletme Müdürü & Yönetim Danışmanı</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
@@ -2332,6 +2343,8 @@
 
             <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST" data-aos="fade-up" data-aos-delay="400">
                 <input type="hidden" name="access_key" value="8dac37f3-87ad-41ad-8650-b93dffc29252">
+                <input type="hidden" name="subject" value="Yeni İletişim Formu Mesajı">
+                <input type="hidden" name="from_name" value="Levoyaz Web Sitesi">
                 <input type="hidden" name="redirect" value="https://web3forms.com/success">
                 <input type="checkbox" name="botcheck" style="display: none;">
                 
@@ -2408,11 +2421,11 @@
             button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gönderiliyor...';
             button.disabled = true;
             
-            // Form normal şekilde Web3Forms'a gönderilecek
-            // Bu kod sadece kullanıcıya geri bildirim sağlıyor
+            // Form başarıyla gönderilirse geri bildirim gösterilecek
+            // Form işlemine müdahale etmiyoruz
             setTimeout(function() {
-                // Herhangi bir hata yakalanırsa buraya eklenebilir
-            }, 2000);
+                // Form gönderimini engellemeyin, normal akışa devam etsin
+            }, 1000);
         });
 
         // Typing Effect Variables
