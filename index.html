@@ -1826,6 +1826,18 @@
             margin-bottom: 2rem;
             animation: slideInRight 1s ease-out 0.5s both;
         }
+
+        @keyframes colorChange {
+            0% { color: #667eea; }
+            25% { color: #764ba2; }
+            50% { color: #FFD700; }
+            75% { color: #FF0000; }
+            100% { color: #667eea; }
+        }
+
+        .hero-content h1 {
+            animation: colorChange 8s infinite;
+        }
     </style>
 </head>
 <body>
@@ -1882,7 +1894,7 @@
                 <div class="profile-ring"></div>
                 <img src="1516650190946.jpeg" alt="Levent Yazıcıoğlu" class="profile-image">
             </div>
-            <h1 data-aos="fade-left" data-aos-duration="1000">Levent Yazıcıoğlu</h1>
+            <h1 data-aos="fade-left" data-aos-duration="1000" class="hero-content h1">Levent Yazıcıoğlu</h1>
             <h2 class="typing-text" id="typingText" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200" style="color: #FFD700;">İşletme Müdürü & Yönetim Danışmanı</h2>
             <p class="hero-description" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" style="color: #FF0000;">
                 30 yıllık deneyimli bir işletme müdürü olarak, kurumsal yönetim, stratejik planlama ve 
