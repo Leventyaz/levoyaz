@@ -435,25 +435,58 @@
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradient 3s ease infinite, slideInLeft 1s ease-out;
+            animation: gradient 8s ease infinite;
             background-size: 200% 200%;
         }
 
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
+        @keyframes gradient {
+            0% {
+                background: linear-gradient(45deg, #FF0000, #FF8C00);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
-            to {
-                opacity: 1;
-                transform: translateX(0);
+            25% {
+                background: linear-gradient(45deg, #FF8C00, #FFFF00);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            50% {
+                background: linear-gradient(45deg, #FFFF00, #00FF00);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            75% {
+                background: linear-gradient(45deg, #00FF00, #0000FF);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            100% {
+                background: linear-gradient(45deg, #0000FF, #FF0000);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
         }
 
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .gradient-text {
+            animation: gradient 8s ease infinite;
+            background-size: 200% 200%;
+            font-weight: bold;
+            font-size: 2.5em;
+        }
+
+        @keyframes rainbow {
+            0% { color: #FF0000; }
+            20% { color: #FF8C00; }
+            40% { color: #FFFF00; }
+            60% { color: #00FF00; }
+            80% { color: #0000FF; }
+            100% { color: #FF0000; }
+        }
+
+        .rainbow-text {
+            animation: rainbow 5s linear infinite;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .hero h2 {
@@ -1838,6 +1871,21 @@
         .hero-content h1 {
             animation: colorChange 8s infinite;
         }
+
+        @keyframes rainbow {
+            0% { color: #FF0000; }
+            20% { color: #FF8C00; }
+            40% { color: #FFFF00; }
+            60% { color: #00FF00; }
+            80% { color: #0000FF; }
+            100% { color: #FF0000; }
+        }
+
+        .rainbow-text {
+            animation: rainbow 5s linear infinite;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -1894,7 +1942,7 @@
                 <div class="profile-ring"></div>
                 <img src="1516650190946.jpeg" alt="Levent Yazıcıoğlu" class="profile-image">
             </div>
-            <h1 data-aos="fade-left" data-aos-duration="1000" class="hero-content h1">Levent Yazıcıoğlu</h1>
+            <h1 data-aos="fade-left" data-aos-duration="1000" class="gradient-text">Levent Yazıcıoğlu</h1>
             <h2 class="typing-text" id="typingText" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200" style="color: #FFD700;">İşletme Müdürü & Yönetim Danışmanı</h2>
             <p class="hero-description" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" style="color: #FF0000;">
                 30 yıllık deneyimli bir işletme müdürü olarak, kurumsal yönetim, stratejik planlama ve 
